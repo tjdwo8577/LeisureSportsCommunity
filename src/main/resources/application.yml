@@ -4,3 +4,6 @@ spring:
     url: jdbc:mysql://localhost:3306/springboard?serverTimezone=Asia/Seoul
     username: leesunguk
     password: Naver920811!
+
+server:
+  port: 8081
