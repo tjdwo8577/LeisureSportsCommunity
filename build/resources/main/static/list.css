@@ -1,0 +1,174 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Page Title */
+.page-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.page-title h3 {
+    color: #333;
+    font-size: 24px;
+}
+
+/* Login Info */
+.login-info {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.login-info a {
+    text-decoration: none;
+    color: #333;
+    margin-left: 10px;
+}
+
+/* Board List */
+.board-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.board-table th,
+.board-table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.board-table th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+    text-align: left;
+}
+
+.board-table td {
+    text-align: center;
+}
+
+/* Write Form Button */
+#writeFormButton {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+#writeFormButton a,
+#writeFormButton span {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+#writeFormButton span {
+    background-color: #ccc;
+    color: #333;
+}
+
+/* Pagination Button */
+#paginationButton {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#paginationButton span {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-right: 5px;
+    text-decoration: none;
+    color: #333;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+}
+
+#paginationButton span:hover {
+    background-color: #ccc;
+}
+
+/* Search Form */
+#search-form {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#search-form input[type="text"] {
+    padding: 10px;
+}
+
+#search-form button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#search-form button:hover {
+    background-color: #555;
+}
+
+/* External Link */
+#external-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px;
+}
+
+#external-link a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+}
+
+#external-link a:hover {
+    background-color: #ccc;
+}
+
+/* GNB */
+.gnb {
+    background-color: #333;
+    color: #fff;
+}
+
+.gnb .container {
+    display: flex;
+    justify-content: center;
+}
+
+.gnb nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.gnb nav ul li {
+    margin-right: 20px;
+}
+
+.gnb nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.gnb nav ul li a:hover {
+    color: #ccc;
+}

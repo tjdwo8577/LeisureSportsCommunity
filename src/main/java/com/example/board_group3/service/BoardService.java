@@ -9,17 +9,17 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
+@RequiredArgsConstructor //final 붙은 필드만 초기화 하는 생성자가 자동으로 만들어진다.
 public class BoardService {
     private final BoardDao boardDao;
 
     @Transactional
-    public void addBoard(int userId, String title, String content) {
+    public void addBoard(int userId, String title, String content) { // userId, title, content 정보를 가지고 DB에 저장, DB는 dao를 이용한다. 게시판 dao가 없으시 생성
         boardDao.addBoard(userId, title, content);
 
     }
 
-    @Transactional(readOnly = true) // select 할때는
+    @Transactional(readOnly = true) // select 할때는 read only true로 넣어줘야 성능이 좋아진다.
     public int getTotalCount() {
         return boardDao.getTotalCount();
     }
@@ -37,13 +37,16 @@ public class BoardService {
     // updateViewCnt 가 true 면 글의 조회수를 증가, false면 글의 조회수를 증가하지 않는다.
     @Transactional
     public Board getBoard(int boardId, boolean updateViewCnt) {
-        Board board = boardDao.getBoard(boardId);
+        //id에 해당하는 게시물을 일어온다.
+        //id에 대항하는 게시물 조회수도 1증가한다. 그래서 readonly = true를 사용할수 없다.
+        Board board = boardDao.getBoard(boardId); // boardDao에서 getboard중 boardId를 가져온다.
         if(updateViewCnt) {
-            boardDao.updateViewCnt(boardId);
+            boardDao.updateViewCnt(boardId); // BoardDao에 upadtaeviewcnt 메소드 작성하기
         }
         return board;
     }
 
+    //게시글 작성자 삭제 기능
     @Transactional
     public void deleteBoard(int userId, int boardId) {
         Board board = boardDao.getBoard(boardId);
@@ -60,5 +63,11 @@ public class BoardService {
     @Transactional
     public void updateBoard(int boardId, String title, String content) {
         boardDao.updateBoard(boardId, title, content);
+    }
+
+
+    @Transactional(readOnly = true) // 원래꺼
+    public List<Board> searchBoards(String keyword) {
+        return boardDao.searchBoards(keyword);
     }
 }

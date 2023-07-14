@@ -5,15 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>회원가입폼</title>
+    <link rel="stylesheet" href="userRegForm.css" />
 </head>
 <body>
 <h1>회원가입폼</h1>
 <!--http://localhost:8080/userRegFrom에서 회원가입-->
-<form action="/userReg" method="post"> <!--회원가입 버튼 누르면 userReg로 이동한다.-->
-    이름 : <input type="text" name="name" /><br />
-    email : <input type="text" name="email" /><br />
-    암호 : <input type="password" name="password" /><br />
-    <input type="submit" value="회원가입" />
+<form action="/userReg" method="post"> <!--회원가입 버튼 누르면 userReg로 이동한다. form태그에 있는게 post방식으로 action을 취한다.-->
+    이름 : <input type="text" name="name" /><br /> <!--회원가입할때 작성하는 이름-->
+    email : <input type="text" name="email" /><br /> <!--회원가입할때 작성하는 이메일 주소-->
+    암호 : <input type="password" name="password" /><br /> <!--회원가입할때 작성하는 암호 type을 password로 작성하여 입력시 안보이게 처리해준다.-->
+    <input type="submit" value="회원가입" onclick='alert("회원가입을 축하드립니다.")' /><!-- 회원가입버튼이 눌렸을때 "/userReg"로 값들이 전달된다.-->
 </form>
 </body>
 </html>

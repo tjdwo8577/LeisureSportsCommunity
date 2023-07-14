@@ -1,0 +1,41 @@
+<!-- search-result.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> 검색한 게시물</title>
+    <link rel="stylesheet" href="search.css" />
+</head>
+<div id="search-results">
+    <div class="container">
+        <h4>검색 결과</h4>
+        <table class="board-table">
+            <thead>
+            <tr>
+                <th scope="col" class="th-num">번호</th>
+                <th scope="col" class="th-title">제목</th>
+                <th scope="col" class="th-viewCnt">조회수</th>
+                <th scope="col" class="th-name">작성자</th>
+                <th scope="col" class="th-date">등록일</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="board : ${searchResults}">
+                <td th:text="${board.boardId}"></td>
+                <td>
+                    <a th:href="@{/board(boardId=${board.boardId})}" th:text="${board.title}"></a>
+                </td>
+                <td th:text="${board.viewCnt}"></td>
+                <td th:text="${board.name}"></td>
+                <td th:text="${board.regdate}"></td>
+
+            </tr>
+            <a href="/">목록보기</a>
+            </tbody>
+        </table>
+    </div>
+</div>
+</html>
