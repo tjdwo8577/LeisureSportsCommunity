@@ -1,0 +1,204 @@
+/* board.css */
+
+/* 바깥부분 색상 처리 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #008080;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* 가운데 정렬 */
+}
+
+.container { /*이거는 로그인 쪽 표.*/
+    background-color: #d4e6f1;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+
+}
+
+/* 게시판 스타일 */
+.board { /*표 배경 */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgb(0, 200, 0);
+}
+
+.page-title {/*게시판 이름 표 바깥부분 색상*/
+    background-color: #d4e6f1;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.page-title h3 { /*서울시 뉴딜 3조 게시판 블로그표에 대한 색상 지정 */
+    margin: 0;
+    font-size: 24px;
+}
+
+.login-info {
+    padding: 10px;
+    background-color: #f9f9f9;
+    text-align: right;
+}
+
+.login-info a { /*로그인 회원가입 버튼*/
+    margin-right: 10px;
+}
+
+.board-table { /*게시글 리스트 표 부분*/
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #444444;
+}
+
+.th-num,
+.th-title,
+.th-viewcnt,
+.th-name,
+.th-date { /*번호 제목, 조회수, 작성자, 등록일 부분 일자 표 부분*/
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+}
+
+.th-num { /*번호만 담당*/
+    width: 10%;
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+}
+
+.th-title { /*제목글시 크기 */
+    width: 40%;
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+
+}
+
+.th-viewcnt {
+    width: 15%;
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+}
+
+.th-name,
+.th-date {
+    width: 10%;
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+}
+
+tbody td { /* 번호, 조회수, 작성자 등록일 부분의 실제 작성한글 보여주는 부분*/
+    padding: 10px;
+    text-align: left; /* 게시물 내용을 왼쪽 정렬 */
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+}
+
+#board-list a { /* 게시글 제목쪽 처리*/
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+}
+
+#board-list a:hover {
+    color: #666;
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+    background-color: #333333;
+
+}
+
+#board-list a:visited {
+    color: #777;
+}
+
+#board-list a:active {
+    color: #000;
+}
+
+#board-list a:focus {
+    outline: none;
+}
+
+#board-list a:focus,
+#board-list a:active {
+    text-decoration: underline;
+}
+
+#board-list a:hover,
+#board-list a:visited {
+    text-decoration: none;
+}
+
+#search-form {
+    margin-top: 40px; /* 검색창을 위로 올림 */
+    margin-bottom: 40px; /* 검색창을 아래로 내림 */
+    text-align: center; /* 가운데 정렬 */
+}
+
+#search-form input[type="text"],
+#search-form button[type="submit"] {
+    padding: 10px;
+    font-size: 16px; /* 폰트 크기를 더 크게 조정 */
+}
+
+#comment-section {
+    margin-top: 20px;
+}
+
+.comment {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.subcomment {
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+
+#comment-form textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    font-size: 14px;
+    resize: none;
+}
+
+#comment-form button[type="submit"] {
+    padding: 10px;
+    font-size: 14px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#comment-form button[type="submit"]:hover {
+    background-color: #45a049;
+    padding: 5px 10px;
+}
+
+.pagination {
+    text-align: center; /* 페이지 숫자를 가운데 정렬 */
+}
+
+.pagination a {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: #f2f2f2;
+    color: #333;
+    text-decoration: none;
+}
+
+.pagination a:hover {
+    background-color: #e5e5e5;
+}
+
+.pagination .active {
+    color: #fff;
+}
