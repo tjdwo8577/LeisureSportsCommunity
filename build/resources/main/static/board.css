@@ -1,27 +1,27 @@
-table {
+table { /*게시글 전체 테이블*/
     border-collapse: collapse;
     border-spacing: 0;
 }
-section.board {
+section.board { /*페이지 전체 담당 이거를 바꾸면 table도 같이 바뀜*/
     padding: 80px 0;
 }
 
-.page-title {
+.page-title { /*서울시 뉴딜 3조게시판 블로그*/
     margin-bottom: 40px;
 }
-.page-title h3 {
+.page-title h3 { /*서울시 뉴딜 3조게시판 블로그*/
     font-size: 28px;
     color: #333333;
     font-weight: 400;
     text-align: center;
 }
 
-.login-info {
+.login-info { /*로그인 회원가입 가로줄로 색상 바뀜*/
     margin-bottom: 10px;
     text-align: right;
 }
 
-#board-search .search-window {
+#board-search .search-window { /*어디인지 모르겠음*/
     padding: 15px 0;
     background-color: #f9f7f9;
 }
@@ -54,28 +54,28 @@ section.board {
     font-size: 16px;
 }
 
-.board-table {
+.board-table { /*게시글 테이블 담당*/
     font-size: 13px;
     width: 100%;
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
 }
 
-.board-table a {
+.board-table a { /*게시글 제목 부분 */
     color: #333;
     display: inline-block;
     line-height: 1.4;
     word-break: break-all;
     vertical-align: middle;
 }
-.board-table a:hover {
+.board-table a:hover { /*게시글 커서 가져다 놓으면 게시글 아래에 밑줄 쳐짐*/
     text-decoration: underline;
 }
-.board-table th {
+.board-table th { /*제목 조회수 작성자 등록일 을 가둔데 정렬 */
     text-align: center;
 }
 
-.board-table .th-num {
+.board-table .th-num { /*번호 라는 표*/
     width: 100px;
     text-align: center;
 }
@@ -90,16 +90,16 @@ section.board {
 }
 
 .board-table th,
-.board-table td {
+.board-table td { /*이것도 표 전체가 영향을 미침*/
     padding: 14px 0;
 }
 
-.board-table tbody td {
+.board-table tbody td { /*작성한 글중 제목을 제외한 번호, 조회수 작성자, 등록일에 영향을 미침*/
     border-top: 1px solid #e7e7e7;
     text-align: center;
 }
 
-.board-table tbody th {
+.board-table tbody th { /*작성한 게시글에서 제목부분에 영향*/
     padding-left: 28px;
     padding-right: 14px;
     border-top: 1px solid #e7e7e7;
@@ -187,29 +187,4 @@ section.board {
     margin: -1px;
     width: 1px;
     height: 1px;
-}
-
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-}
-
-
-.writ {
-    margin-right: 5px; /* if you want the space outside the element */
-    /* or */
-    padding-right: 1px; /* if you want the space inside the element */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.pages {
-    /* Styles for the page class here */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
 }

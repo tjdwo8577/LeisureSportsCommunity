@@ -5,15 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>글쓰기 폼</title>
+    <link rel="stylesheet" href="writeForm.css" />
 </head>
 <body>
 <H1>글쓰기 폼</H1>
 <form action="/write" method="post">
-    이름 : <span th:text="${loginInfo.name}"></span><br>
+    이름 : <span th:text="${loginInfo.name}"></span><br>  <!--Model에 담아서 넘겨준 loginInfo에서 사용자의 이름을가져온다.--> <!--자동으로 로그인한 유저의 이름을 가져오게 한다.-->
     제목 : <input type="text" name="title" /><br />
     내용 : <br>
-    <textarea name="content" cols="50" rows="5"></textarea><br>
-    <input type="submit" value="등록" />
+    <textarea name="content" cols="50" rows="5"></textarea><br> <!-- col="50' 은 가로 50, row-"5"는 새로가 5인 칸 -->
+    <input type="submit" value="등록" onclick='alert("새로운 글이 작성되었습니다.")'/> <!-- submit 버튼을 누르면 사용자가 입력한 제목과 내용이 action으로 전달되는데 post방식으로 "/write"라는 경로로 전달-->
 </form>
 </body>
 </html>
