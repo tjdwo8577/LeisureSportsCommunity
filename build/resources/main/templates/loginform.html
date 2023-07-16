@@ -4,15 +4,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>로그인 폼</title>
+    <title>Login form</title>
     <link rel="stylesheet" href="loginform.css" />
 </head>
 <body>
-<H1>로그인 폼</H1>
+<H1>Login form</H1>
 <form action="/login" method="post"> <!-- 입력한 로그인 정보(이메일과 암호)를 post방식으로 action="/login"으로 전달된다.-->
     email : <input type="text" name="email" /><br />
-    암호 : <input type="password" name="password" /><br />
-    <input type="submit" value="로그인"/>
+    Password: <input type="password" name="password" /><br />
+    <input type="submit" value="login"/>
 </form>
+
+<p id="error_message" style="display:none;color:red;">Login failed. Please check your email and password.</p>
+
+<script>
+    var url = window.location.href;
+    if (url.indexOf('error=true') != -1) {
+        document.getElementById('error_message').style.display = 'block';
+    }
+</script>
+
 </body>
 </html>
