@@ -1,11 +1,29 @@
 # MySQL 데이터 베이스와 Spring boot를 이용한 블로그를 만드어 봤습니다.
 
+- Spring Boot
+- Spring MVC
+- Spring JDBC
+- MYSQL - SQL
+- thymeleaf 템플릿 엔진
+
 ## MySQL 데이터 베이스에 board, role, role2, user, user_role의 테이블을 만들어 로그인 기능을통해 게시글 작성자만 글 삭제와 수정이 가능하게 하고
 ## 게시글을 board 테이블에 저장하게 만들어 봤습니다.
 ### 테이블의 속성은 아래와 같습니다.
 ![mysql1](https://github.com/tjdwo8577/baord_group3/assets/88715270/1ed08859-a08d-4721-a83c-aefdfb166799)
 
 ![mysql2](https://github.com/tjdwo8577/baord_group3/assets/88715270/07df94e0-df1b-498d-9aef-c273e3da9d41)
+
+```
+                     Spring Core
+                     Spring MVC                   Spring JDBC    MySQL
+브라우저 ---- 요청 ---> Controller ----> Service ----> DAO ----> DB
+        <--- 응답 --- 템플릿 <---           <----         <----
+                      <------------ layer간에 데이터 전송은 DTO -->
+```
+## 게시판 만드는 순서
+1. Controller와 템플릿
+2. Service - 비지니스 로직을 처리 (하나의 트랜잭션 단위)
+3. Service는 비지니스로직을 처리하기위해 데이터를 CRUD 하기위해 DAO를 사용
 
 ### css 부분은 아직 미완성입니다.
 
