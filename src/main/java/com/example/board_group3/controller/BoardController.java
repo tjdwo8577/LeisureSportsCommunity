@@ -108,7 +108,7 @@ public class BoardController {
             HttpSession session
 
     ){
-        LoginInfo loginInfo = (LoginInfo)session.getAttribute("loginInfo"); // 로그인한 정보를 loginInfo를 일어온다.
+        LoginInfo loginInfo = (LoginInfo)session.getAttribute("loginInfo"); // 로그인한 정보를 loginInfo를 읽어온다.
         if(loginInfo == null) { // 세션에 로그인 정보가 없으면 /loginform으로 redirect
             return "redirect:/loginform";
         }
