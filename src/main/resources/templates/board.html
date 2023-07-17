@@ -45,12 +45,17 @@
             <textarea name="content" placeholder="댓글을 입력하세요"></textarea>
             <button type="submit">작성하기</button>
         </form>
-
+    </div>
+</div>
+<div id="commentarea">
+    <div class="comment">
+        <h3>댓글 목록</h3>
         <ul id="commentList">
             <li th:each="comment : ${comments}">
                 <span th:text="${comment.name}"></span>
                 <span>: </span>
                 <span th:text="${comment.content}"></span>
+                <span th:text="${comment.regdate}"></span>
             </li>
         </ul>
     </div>

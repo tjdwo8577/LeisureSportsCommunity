@@ -1,56 +1,3 @@
-<!--
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>게시물 상세보기</title>
-    <link rel="stylesheet" href="boarddetail.css" />
-</head>
-<body>
-    <table class="board-details">
-        <tr>
-            <th>글쓴이</th>
-            <td><span th:text="${board.name}"></span></td>
-        </tr>
-        <tr>
-            <th>제목</th>
-            <td><span th:text="${board.title}"></span></td>
-        </tr>
-        <tr>
-            <th>조회수</th>
-            <td><span th:text="${board.viewCnt}"></span></td>
-        </tr>
-        <tr>
-            <th>작성일</th>
-            <td><span th:text="${board.regdate}"></span></td>
-        </tr>
-        <tr>
-            <th>내용</th>
-            <td><span th:text="${board.content}"></span></td>
-        </tr>
-    </table>
-
-    <div class="button-group">
-        <a href="/">목록보기</a>
-        <a th:href="@{/updateform(boardId=${board.boardId})}">수정하기</a>
-        <a onclick='confirmDelete();' th:href="@{/delete(boardId=${board.boardId})}">삭제하기</a>
-    </div>
-
-    <script>
-        function confirmDelete() {
-            if (confirm("게시물을 삭제하시겠습니까?")) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-    </script>
-</body>
-</html>
--->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -98,12 +45,17 @@
             <textarea name="content" placeholder="댓글을 입력하세요"></textarea>
             <button type="submit">작성하기</button>
         </form>
-
+    </div>
+</div>
+<div id="commentarea">
+    <div class="comment">
+        <h3>댓글 목록</h3>
         <ul id="commentList">
             <li th:each="comment : ${comments}">
                 <span th:text="${comment.name}"></span>
                 <span>: </span>
                 <span th:text="${comment.content}"></span>
+                <span th:text="${comment.regdate}"></span>
             </li>
         </ul>
     </div>
