@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="weather.css" />
+<head>
+    <meta charset="UTF-8">
+    <title>Current Weather</title>
+</head>
+<body>
+<div id="weather-info">
+    <div class="container">
+        <div th:each="cityWeather : ${weather}">
+            <div>
+                <h3 th:text="${cityWeather.name}"></h3>
+                <p th:text="'Temperature: ' + ${#numbers.formatDecimal(cityWeather.main.temp - 273.15, 2, 2)} + '°C'"></p>
+                <p th:text="'Weather: ' + ${cityWeather.weather[0].description}"></p>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

@@ -103,6 +103,7 @@ body {
 #search-form {
     margin-top: 20px;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 #search-form input[type="text"] {
@@ -170,5 +171,39 @@ body {
 }
 
 .gnb nav ul li a:hover {
+    color: #ccc;
+}
+/* Weather Information (FNB) */
+#weather-info {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+#weather-info .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#weather-info h3 {
+    font-size: 16px;
+    margin: 0;
+}
+
+#weather-info p {
+    margin: 5px 0;
+}
+
+#weather-info a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+#weather-info a:hover {
     color: #ccc;
 }

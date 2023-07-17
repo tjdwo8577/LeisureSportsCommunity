@@ -15,7 +15,6 @@
                 <li><a href="https://www.google.com" target="_blank">구글</a></li>
                 <li><a href="https://weather.naver.com/today/" target="_blank">날씨</a></li>
                 <li><a href="http://www.naver.com" target="_blank">네이버</a></li>
-                <li><a href="#" target="_blank">메뉴 4</a></li>
             </ul>
         </nav>
     </div>
@@ -23,7 +22,7 @@
 <section class="board">
     <div class="page-title">
         <div class="container">
-            <h3>서울시 뉴딜 3조 게시판 블로그</h3>
+            <h3>레저활동을 위한 날씨공유 커뮤니티</h3>
         </div>
     </div>
 
@@ -104,6 +103,17 @@
         </div>
         <div id="external-link">
             <a href="https://www.google.com">외부 링크</a>
+        </div>
+        <div id="weather-info">
+            <div class="container">
+                <div th:each="cityWeather : ${weather}">
+                    <div>
+                        <h3 th:text="${cityWeather.name}"></h3>
+                        <p th:text="'Temperature: ' + ${#numbers.formatDecimal(cityWeather.main.temp - 273.15, 2, 2)} + '°C'"></p>
+                        <p th:text="'Weather: ' + ${cityWeather.weather[0].description}"></p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
