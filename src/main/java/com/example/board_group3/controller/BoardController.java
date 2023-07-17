@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -50,15 +51,44 @@ public class BoardController {
         model.addAttribute("currentPage", currentPage);
         return "list";
     }
+    private int calculatePageCount() {
+        // Replace this with your real logic to calculate pageCount.
+        return 10;
+    }
+    @GetMapping("/about")
+    public String about(Model model) {
+        // Your logic to calculate pageCount
+        int pageCount = calculatePageCount();
+
+        model.addAttribute("pageCount", pageCount);
+
+        return "about";
+    }
+
 
     @GetMapping("/board")
-    public String board(@RequestParam("boardId") int boardId, Model model) {
-        Board board = boardService.getBoard(boardId);
-        List<Comment> comments = commentService.getCommentsByBoardId(boardId);
-        model.addAttribute("board", board);
-        model.addAttribute("comments",comments);
+    public String board(@RequestParam(required = false) Integer boardId, Model model) {
+        if (boardId != null) {
+            Board board = boardService.getBoard(boardId);
+            List<Comment> comments = commentService.getCommentsByBoardId(boardId);
+            model.addAttribute("board", board);
+            model.addAttribute("comments",comments);
+        } else {
+            // Handle the case where 'boardId' is null
+            Board defaultBoard = new Board();
+            // Set the default properties for the 'defaultBoard' as necessary
+            model.addAttribute("board", defaultBoard);
+            model.addAttribute("comments", new ArrayList<Comment>());
+        }
         return "board";
     }
+
+
+
+
+
+
+
     @GetMapping("/writeForm")
     public String writeForm(HttpSession session, Model model) {
         LoginInfo loginInfo = (LoginInfo)session.getAttribute("loginInfo");
