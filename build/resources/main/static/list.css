@@ -9,7 +9,8 @@ body {
 .container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 5px;
+    margin-top: 25px;
 }
 
 /* Page Title */
@@ -31,8 +32,48 @@ body {
 
 .login-info a {
     text-decoration: none;
-    color: #333;
+    color: #fff; /* Change the color to white */
     margin-left: 10px;
+    border: none; /* No border */
+    padding: 10px 20px; /* Some padding for better look */
+    display: inline-block; /* To apply padding and other block properties */
+    font-weight: bold; /* Make text bold */
+    transition: background-color 0.3s; /* Transition for smooth color change */
+}
+
+.login-info .login-info_login a {
+    background-color: rgba(121, 152, 178, 0.9); /* The specific color when not clicked */
+}
+
+.login-info .login-info_login a:active { /* Style when button is clicked */
+    background-color: rgba(121, 152, 178, 0.7); /* Slightly lighter color on click */
+    box-shadow: none; /* No box shadow on click */
+}
+
+.login-info .login-info_join a {
+    background-color: #e6a756; /* The specific color when not clicked */
+}
+
+.login-info .login-info_join a:active { /* Style when button is clicked */
+    background-color: #d99a48; /* Slightly lighter color on click */
+    box-shadow: none; /* No box shadow on click */
+}
+.login-info .login-info_user a {
+    background-color: rgba(121, 152, 178, 0.9); /* The specific color when not clicked */
+}
+
+.login-info .login-info_user a:active { /* Style when button is clicked */
+    background-color: rgba(121, 152, 178, 0.7); /* Slightly lighter color on click */
+    box-shadow: none; /* No box shadow on click */
+}
+
+.login-info .login-info_logout a {
+    background-color: #e6a756; /* The specific color when not clicked */
+}
+
+.login-info .login-info_logout a:active { /* Style when button is clicked */
+    background-color: #d99a48; /* Slightly lighter color on click */
+    box-shadow: none; /* No box shadow on click */
 }
 
 /* Board List */
@@ -49,25 +90,26 @@ body {
 }
 
 .board-table th {
-    background-color: #f0f0f0;
+    background-color: rgba(121, 152, 178, 0.9);
     font-weight: bold;
     text-align: left;
 }
 
 .board-table td {
     text-align: center;
+    background-color: rgba(121, 152, 178, 0.9);
 }
 
 /* Write Form Button */
 #writeFormButton {
     text-align: right;
-    margin-bottom: 20px;
+    margin-bottom: 0;
 }
 
 #writeFormButton a,
 #writeFormButton span {
-    padding: 10px 20px;
-    background-color: #333;
+    padding: 5px 5px;
+    background-color: #e6a756;
     color: #fff;
     text-decoration: none;
     border: none;
@@ -75,7 +117,7 @@ body {
 }
 
 #writeFormButton span {
-    background-color: #ccc;
+    background-color: #e6a756;
     color: #333;
 }
 
@@ -112,7 +154,7 @@ body {
 
 #search-form button {
     padding: 10px 20px;
-    background-color: #333;
+    background-color: #e6a756;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -174,36 +216,79 @@ body {
     color: #ccc;
 }
 /* Weather Information (FNB) */
-#weather-info {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-}
+/*#weather-info {*/
+/*    background-color: #333;*/
+/*    color: #fff;*/
+/*    padding: 20px 0;*/
+/*    text-align: center;*/
+/*}*/
 
-#weather-info .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 800px;
-    margin: 0 auto;
-}
+/*#weather-info .container {*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*    max-width: 800px;*/
+/*    margin: 0 auto;*/
+/*}*/
 
-#weather-info h3 {
-    font-size: 16px;
-    margin: 0;
-}
+/*#weather-info h3 {*/
+/*    font-size: 16px;*/
+/*    margin: 0;*/
+/*}*/
 
-#weather-info p {
-    margin: 5px 0;
-}
+/*#weather-info p {*/
+/*    margin: 5px 0;*/
+/*}*/
 
-#weather-info a {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 10px;
-}
+/*#weather-info a {*/
+/*    color: #fff;*/
+/*    text-decoration: none;*/
+/*    margin-left: 10px;*/
+/*}*/
 
-#weather-info a:hover {
-    color: #ccc;
-}
+/*#weather-info a:hover {*/
+/*    color: #ccc;*/
+/*}*/
+/* Weather Information (FNB) */
+/*#weather-info {*/
+/*    background-color: #333;*/
+/*    color: #fff;*/
+/*    padding: 20px 0;*/
+/*    text-align: center;*/
+/*}*/
+
+/*#weather-info .container {*/
+/*    max-width: 800px;*/
+/*    margin: 0 auto;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*}*/
+
+/*#weather-info .box {*/
+/*    margin: 10px 0;*/
+/*    padding: 20px;*/
+/*    background-color: #444;*/
+/*    width: 100%;*/
+/*    box-sizing: border-box;*/
+/*    border-radius: 5px;*/
+/*}*/
+
+/*#weather-info h3 {*/
+/*    font-size: 16px;*/
+/*    margin: 0;*/
+/*}*/
+
+/*#weather-info p {*/
+/*    margin: 5px 0;*/
+/*}*/
+
+/*#weather-info a {*/
+/*    color: #fff;*/
+/*    text-decoration: none;*/
+/*    margin-left: 10px;*/
+/*}*/
+
+/*#weather-info a:hover {*/
+/*    color: #ccc;*/
+/*}*/

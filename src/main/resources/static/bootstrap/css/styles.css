@@ -660,6 +660,8 @@ progress {
 @media (min-width: 1200px) {
   .container-xl, .container-lg, .container-md, .container-sm, .container {
     max-width: 1140px;
+    max-height: calc(100vh - 60px);  /* Adjust as necessary */
+    /*overflow-y: auto;  !* Add a scrollbar if necessary *!*/
   }
 }
 @media (min-width: 1400px) {
@@ -9680,8 +9682,8 @@ textarea.form-control-lg {
     padding-bottom: 1rem !important;
   }
   .py-lg-4 {
-    padding-top: 1.5rem !important;
-    padding-bottom: 1.5rem !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
   .py-lg-5 {
     padding-top: 3rem !important;
@@ -10826,7 +10828,7 @@ textarea.form-control-lg {
   }
 }
 body {
-  background-image: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("/bootstrap/assets/img/bg.jpg");
+  background-image: linear-gradient(rgba(171, 192, 203, 0.65), rgba(92, 144, 204, 0.65)), url("/bootstrap/assets/img/bg.jpg");
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
@@ -10892,29 +10894,39 @@ p {
 
 #mainNav {
   background-color: rgba(121, 152, 178, 0.9);
-  font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" , "Noto Color Emoji";
+  height: 100px;
+  text-align: center; /* Center align the text */
 }
+
 #mainNav .navbar-brand {
   color: #e6a756;
 }
+
 #mainNav .navbar-nav .nav-item .nav-link {
   color: rgba(255, 255, 255, 0.7);
   font-weight: 800;
 }
+
 #mainNav .navbar-nav .nav-item.active .nav-link {
   color: #e6a756;
 }
-@media (min-width: 992px) {
+
+@media (min-width: 600px) {
   #mainNav .navbar-nav .nav-item .nav-link {
-    font-size: 0.9rem;
+    font-size: 1.5rem; /* 변경된 텍스트 크기 */
   }
+
   #mainNav .navbar-nav .nav-item .nav-link:hover {
     color: rgba(255, 255, 255, 0.4);
   }
+
   #mainNav .navbar-nav .nav-item.active .nav-link:hover {
     color: #e6a756;
   }
 }
+
+
 
 .btn {
   box-shadow: 0px 3px 3px 0px rgba(33, 37, 41, 0.1);
@@ -10935,7 +10947,7 @@ p {
 .cta {
   padding-top: 5rem;
   padding-bottom: 5rem;
-  background-color: rgba(230, 167, 86, 0.9);
+  background-color: rgba(121, 152, 178, 0.9);
 }
 .cta .cta-inner {
   position: relative;
@@ -10954,9 +10966,58 @@ p {
   z-index: -1;
 }
 
-.footer {
-  background-color: rgba(47, 23, 15, 0.9);
+/*.card-container {*/
+/*  display: flex;*/
+/*  justify-content: space-around;*/
+/*  width: calc(100% - 40px); !* 100% of the footer width minus the total of left and right padding *!*/
+/*  padding: 0 20px; !* 20px of padding on the left and right *!*/
+/*  align-items: center;*/
+/*}*/
+/*.card {*/
+/*  margin: 0 20px 20px 20px; !* this sets the top margin to 0, right margin to 20px, bottom margin to 20px, and left margin to 20px *!*/
+/*  flex-direction: row;*/
+/*  display: flex;*/
+/*}*/
+
+/*.footer {*/
+/*  background-color: rgba(121, 152, 178, 0.9);*/
+/*  position: fixed;*/
+/*  bottom: 0;*/
+/*  width: 100%;*/
+/*}*/
+
+
+.card-container {
+  display: flex;
+  justify-content: space-between; /* Align cards to the left and right edges */
+  width: calc(100% - 40px);
+  padding: 0 20px;
+  align-items: center;
+  background-color: rgba(121, 152, 178, 0.9);
+  margin-left: 100px;
+  height: auto;
 }
+
+.card {
+  background-color: rgba(121, 152, 178, 0.9);
+  margin: 0 0 20px; /* Remove auto margin and set the left and right margins to 0 */
+  flex-direction: row;
+  display: flex;
+  /*position: fixed;*/
+}
+.footer {
+  background-color: rgba(121, 152, 178, 0.9);
+  position: fixed;
+    bottom: 0;
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+
+
 
 .intro {
   position: relative;
@@ -11028,9 +11089,9 @@ p {
   font-size: 1.2rem;
 }
 
-.login-info {
-  text-align: right;
-  margin-bottom: 20px;
-  text-decoration: none;
-  color: #333;
-}
+/*.login-info {*/
+/*  text-align: right;*/
+/*  margin-bottom: 20px;*/
+/*  text-decoration: none;*/
+/*  color: #333;*/
+/*}*/

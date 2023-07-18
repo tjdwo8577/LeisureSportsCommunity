@@ -64,40 +64,41 @@ public class BoardController {
 
         return "about";
     }
-
-
-    @GetMapping("/board")
-    public String board(@RequestParam(required = false) Integer boardId, Model model) {
-        if (boardId != null) {
-            Board board = boardService.getBoard(boardId);
-            List<Comment> comments = commentService.getCommentsByBoardId(boardId);
-            model.addAttribute("board", board);
-            model.addAttribute("comments",comments);
-        } else {
-            // Handle the case where 'boardId' is null
-            Board defaultBoard = new Board();
-            // Set the default properties for the 'defaultBoard' as necessary
-            model.addAttribute("board", defaultBoard);
-            model.addAttribute("comments", new ArrayList<Comment>());
-        }
-        return "board";
+@GetMapping("/board")
+public String board(@RequestParam("boardId") int boardId, Model model) {
+    Board board = boardService.getBoard(boardId);
+    List<Comment> comments = commentService.getCommentsByBoardId(boardId);
+    model.addAttribute("board", board);
+    model.addAttribute("comments",comments);
+    return "board";
+}
+//    @GetMapping("/writeForm")
+//    public String writeForm(HttpSession session, Model model) {
+//        LoginInfo loginInfo = (LoginInfo)session.getAttribute("loginInfo");
+//        if(loginInfo == null) {
+//            return "redirect:/loginform";
+//        }
+//        model.addAttribute("loginInfo", loginInfo);
+//        model.addAttribute("pageCount", pageCount);
+//        return "writeForm";
+//    }
+@GetMapping("/writeForm")
+public String writeForm(HttpSession session, Model model) {
+    LoginInfo loginInfo = (LoginInfo)session.getAttribute("loginInfo");
+    if(loginInfo == null) {
+        return "redirect:/loginform";
     }
 
-
-
-
-
-
-
-    @GetMapping("/writeForm")
-    public String writeForm(HttpSession session, Model model) {
-        LoginInfo loginInfo = (LoginInfo)session.getAttribute("loginInfo");
-        if(loginInfo == null) {
-            return "redirect:/loginform";
-        }
-        model.addAttribute("loginInfo", loginInfo);
-        return "writeForm";
+    int totalCount = boardService.getTotalCount();
+    int pageCount = totalCount / 10;
+    if (totalCount % 10 > 0) {
+        pageCount++;
     }
+
+    model.addAttribute("loginInfo", loginInfo);
+    model.addAttribute("pageCount", pageCount);
+    return "writeForm";
+}
 
     @PostMapping("/write")
     public String write(
@@ -184,5 +185,52 @@ public class BoardController {
         return "redirect:/board?boardId=" + boardId;
     }
 
+    @GetMapping("/writeNoticeForm")
+    public String writeNoticeForm(HttpSession session, Model model) {
+        LoginInfo loginInfo = (LoginInfo) session.getAttribute("loginInfo");
+        if (loginInfo == null) {
+            return "redirect:/loginform";
+        }
+        model.addAttribute("loginInfo", loginInfo);
+        return "writeNoticeForm";
+    }
 
+    @PostMapping("/writeNotice")
+    public String writeNotice(
+            @RequestParam("title") String title,
+            @RequestParam("content") String content,
+            HttpSession session) {
+        LoginInfo loginInfo = (LoginInfo) session.getAttribute("loginInfo");
+        if (loginInfo == null) {
+            return "redirect:/loginform";
+        }
+        List<String> roles = loginInfo.getRoles();
+        if (roles.contains("ROLE_ADMIN")) {
+            boardService.addNotice(title, content); // 공지사항 추가 메서드 사용
+        }
+        return "redirect:/noticeList"; // 공지사항 목록으로 리다이렉트
+    }
+
+    @GetMapping("/deleteNotice")
+    public String deleteNotice(
+            @RequestParam("noticeId") int noticeId,
+            HttpSession session) {
+        LoginInfo loginInfo = (LoginInfo) session.getAttribute("loginInfo");
+        if (loginInfo == null) {
+            return "redirect:/loginform";
+        }
+        List<String> roles = loginInfo.getRoles();
+        if (roles.contains("ROLE_ADMIN")) {
+            boardService.deleteNotice(noticeId); // 공지사항 삭제 메서드 사용
+        }
+        return "redirect:/noticeList"; // 공지사항 목록으로 리다이렉트
+    }
+
+    @GetMapping("/noticeList")
+    public String getNotices(Model model) {
+        List<Board> notices = boardService.getNotices();
+        model.addAttribute("notices", notices);
+        return "noticeList"; // noticeList.html로 이동하여 공지사항 목록을 보여줌
+    }
 }
+

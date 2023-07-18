@@ -21,6 +21,7 @@ import java.util.Map;
 public class BoardDao {
     private final NamedParameterJdbcTemplate jdbcTemplate; // sql 문에 value 에 ? 대신에 property명을 쓸수 있다.
     private final SimpleJdbcInsertOperations insertBoard; // insert를 쉽게 하도록 도와주는 인터페이스
+    private String keyword;
 
     // 생성자 주입, 스프링이 자동으로 HikariCP Bean을 주입한다.
     public BoardDao(DataSource dataSource) {// 생성자에 파라미터를 넣어주면 스프링 부트가 자동으로 주입한다.(생성자는 BoardDoa이고 주입된 파라미터는 DataSource dataSource이다.
@@ -99,14 +100,48 @@ public class BoardDao {
         //jdbcTemplate.update(sql, Map.of("boardId", boardId, "title", title, "content", content));
     }
 
-
-
     @Transactional(readOnly = true)
     public List<Board> searchBoards(String keyword) {
         String sql = "SELECT * FROM board WHERE title LIKE :keyword OR content LIKE :keyword";
         RowMapper<Board> rowMapper = BeanPropertyRowMapper.newInstance(Board.class);
         List<Board> searchResults = jdbcTemplate.query(sql, Map.of("keyword", "%" + keyword + "%"), rowMapper);
         return searchResults;
+    }
+
+    @Transactional(readOnly = true)
+    public List<Board> getNotices() {
+        String sql = "SELECT * FROM notice ORDER BY notice_id DESC";
+        RowMapper<Board> rowMapper = BeanPropertyRowMapper.newInstance(Board.class);
+        List<Board> notices = jdbcTemplate.query(sql, rowMapper);
+        return notices;
+    }
+
+    // 공지사항 추가 메서드
+    @Transactional
+    public void addNotice(String title, String content) {
+        String sql = "INSERT INTO notice (title, content, regdate) VALUES (:title, :content, :regdate)";
+        Board notice = new Board();
+        notice.setTitle(title);
+        notice.setContent(content);
+        notice.setRegdate(LocalDateTime.now());
+        SqlParameterSource params = new BeanPropertySqlParameterSource(notice);
+        jdbcTemplate.update(sql, params);
+    }
+
+    // 공지사항 삭제 메서드
+    @Transactional
+    public void deleteNotice(int noticeId) {
+        String sql = "DELETE FROM notice WHERE notice_id = :noticeId";
+        jdbcTemplate.update(sql, Map.of("noticeId", noticeId));
+    }
+
+    // 공지사항 ID로 조회 메서드
+    @Transactional(readOnly = true)
+    public Board getNotice(int noticeId) {
+        String sql = "SELECT * FROM notice WHERE notice_id = :noticeId";
+        RowMapper<Board> rowMapper = BeanPropertyRowMapper.newInstance(Board.class);
+        Board notice = jdbcTemplate.queryForObject(sql, Map.of("noticeId", noticeId), rowMapper);
+        return notice;
     }
 
 }

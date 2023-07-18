@@ -1,0 +1,79 @@
+/* write-notice.css */
+
+/* 전체 body 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    margin: 0;
+}
+
+/* 헤더 스타일 */
+.gnb {
+    background-color: #222;
+    padding: 10px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.gnb nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.gnb nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.gnb nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* 공지사항 작성 폼 스타일 */
+.write-notice {
+    padding: 20px 0;
+}
+
+.write-notice h2 {
+    text-align: center;
+}
+
+.write-notice form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.write-notice .form-group {
+    margin-bottom: 20px;
+}
+
+.write-notice label {
+    display: block;
+    font-weight: bold;
+}
+
+.write-notice input[type="text"],
+.write-notice textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.write-notice button {
+    padding: 10px 20px;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+/* 원하는 스타일을 추가하셔서 수정하시면 됩니다. */

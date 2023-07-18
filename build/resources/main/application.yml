@@ -6,7 +6,7 @@ spring:
     password: Naver920811!
 
 server:
-  port: 8081
+  port: 8080
 
 
 # OpenWeatherAPI 설정

@@ -70,4 +70,27 @@ public class BoardService {
     public List<Board> searchBoards(String keyword) {
         return boardDao.searchBoards(keyword);
     }
+
+    @Transactional(readOnly = true)
+    public List<Board> getNotices() {
+        return boardDao.getNotices();
+    }
+
+    // 공지사항 추가 메서드
+    @Transactional
+    public void addNotice(String title, String content) {
+        boardDao.addNotice(title, content);
+    }
+
+    // 공지사항 삭제 메서드
+    @Transactional
+    public void deleteNotice(int noticeId) {
+        boardDao.deleteNotice(noticeId);
+    }
+
+    // 공지사항 ID로 조회 메서드
+    @Transactional(readOnly = true)
+    public Board getNotice(int noticeId) {
+        return boardDao.getNotice(noticeId);
+    }
 }
