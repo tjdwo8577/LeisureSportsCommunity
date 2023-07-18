@@ -133,7 +133,7 @@ body {
     margin-right: 5px;
     text-decoration: none;
     color: #333;
-    background-color: #f0f0f0;
+    background-color: rgba(121, 152, 178, 0.9);
     border: 1px solid #ccc;
 }
 

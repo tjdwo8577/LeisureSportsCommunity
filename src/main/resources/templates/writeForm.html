@@ -38,7 +38,7 @@
         </div>
     </div>
 </nav>
-<H1>글쓰기 폼</H1>
+<!--<H1>글쓰기 폼</H1>-->
 <form action="/write" method="post">
     이름 : <span th:text="${loginInfo.name}"></span><br>
     제목 : <input type="text" name="title" /><br />
@@ -311,14 +311,14 @@
     </div>
 </div>
 <!-- 검색어 입력 필드와 검색 버튼 -->
-<div id="search-form">
-    <div class="container">
-        <form action="/search" method="GET">
-            <input type="text" name="keyword" placeholder="검색어를 입력하세요" />
-            <button type="submit">검색</button>
-        </form>
-    </div>
-</div>
+<!--<div id="search-form">-->
+<!--    <div class="container">-->
+<!--        <form action="/search" method="GET">-->
+<!--            <input type="text" name="keyword" placeholder="검색어를 입력하세요" />-->
+<!--            <button type="submit">검색</button>-->
+<!--        </form>-->
+<!--    </div>-->
+<!--</div>-->
 <div id="weather-info">
     <div class="container">
         <div th:each="cityWeather : ${weather}">

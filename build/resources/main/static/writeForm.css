@@ -11,11 +11,13 @@ h1 {
 }
 
 form {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: rgba(121, 152, 178, 0.9);
     border: 1px solid #ccc;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 form span {
@@ -25,7 +27,12 @@ form span {
 form input[type="text"] {
     width: 85%; /* 변경된 부분 */
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: auto;
+    margin-top: 15px;
+    color: rgba(23, 34, 42, 0.9); /* Text color inside the input field */
+    background-color: rgba(121, 152, 178, 0.9); /* Background color of the input field */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 form textarea {
@@ -33,6 +40,12 @@ form textarea {
     height: 200px; /* 추가된 부분 */
     padding: 10px;
     margin-bottom: 10px;
+    color: rgba(23, 34, 42, 0.9); /* Text color inside the input field */
+    background-color: rgba(121, 152, 178, 0.9); /* Background color of the input field */
+    margin-bottom: auto;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 form input[type="submit"] {
@@ -58,14 +71,14 @@ form input[type="submit"]:hover {
 .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
 .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
 /*.map_wrap {position:relative;width:80%;height:400px;}*/
-#menu_wrap {position:absolute;top:0;left:50px;bottom:0;width:300px;height: 300px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
+#menu_wrap {position:absolute;top:0;left:70px;bottom:0;width:300px;height: 300px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
 .bg_white {background:#fff;}
 #menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
 #menu_wrap .option{text-align: center;}
 #menu_wrap .option p {margin:10px 0;}
 #menu_wrap .option button {margin-left:5px;}
 #placesList li {list-style: none;}
-#placesList .item {position:relative;border-bottom:1px solid #888;overflow: hidden;cursor: pointer;min-height: 65px;}
+#placesList .item {position:relative;border-bottom:1px solid #a63f3f;overflow: hidden;cursor: pointer;min-height: 65px;}
 #placesList .item span {display: block;margin-top:4px;}
 #placesList .item h5, #placesList .item .info {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
 #placesList .item .info{padding:10px 0 10px 55px;}

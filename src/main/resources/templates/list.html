@@ -51,6 +51,7 @@
                 <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="/">Home</a></li>
                 <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="/about">About</a></li>
                 <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="/">Board</a></li>
+                <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="/noticeList">Notice</a></li>
                 <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="https://weather.naver.com/today/" target="_blank">Naver</a></li>
             </ul>
         </div>
@@ -111,17 +112,6 @@
                 </form>
             </div>
         </div>
-<!--        <div id="weather-info">-->
-<!--            <div class="container">-->
-<!--                <div th:each="cityWeather : ${weather}">-->
-<!--                    <div>-->
-<!--                        <h3 th:text="${cityWeather.name}"></h3>-->
-<!--                        <p th:text="'Temperature: ' + ${#numbers.formatDecimal(cityWeather.main.temp - 273.15, 2, 2)} + '°C'"></p>-->
-<!--                        <p th:text="'Weather: ' + ${cityWeather.weather[0].description}"></p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
     </div>
 </section>
 <footer class="footer text-faded text-center py-5">
@@ -147,11 +137,27 @@
 <!-- Core theme JS-->
 <script src="/bootstrap/js/scripts.js"></script>
 
-**<script>
+
+
+<script>
+    // Refresh Table Numbering Function
+    function refreshTableNumbers() {
+        var table = document.querySelector('.board-table tbody');
+        var rows = table.querySelectorAll('tr');
+
+        rows.forEach(function(row, index) {
+            var numberCell = row.querySelector('.th-num');
+            numberCell.textContent = index + 1;
+        });
+    }
+
+    // Call function to refresh table numbers
+    refreshTableNumbers();
+
     document.getElementById("write-button").addEventListener("click", function() {
         alert("로그인이 필요한 기능입니다. 먼저 로그인해주세요.");
     });
-</script>**
+</script>
 
 </body>
 </html>

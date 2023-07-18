@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>회원가입폼</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" type="image/x-icon" href="/bootstrap/assets/favicon.ico" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/bootstrap/css/styles.css" rel="stylesheet" />
+    <title>회원 가입</title>
     <link rel="stylesheet" href="userRegForm.css" />
 </head>
 <body>
-<h1>회원가입폼</h1>
+<h1>Join us</h1>
 <!--http://localhost:8080/userRegFrom에서 회원가입-->
 <form action="/userReg" method="post"> <!--회원가입 버튼 누르면 userReg로 이동한다. form태그에 있는게 post방식으로 action을 취한다.-->
     이름 : <input type="text" name="name" /><br /> <!--회원가입할때 작성하는 이름-->
@@ -16,5 +23,13 @@
     암호 : <input type="password" name="password" /><br /> <!--회원가입할때 작성하는 암호 type을 password로 작성하여 입력시 안보이게 처리해준다.-->
     <input type="submit" value="회원가입" onclick='alert("회원가입을 축하드립니다.")' /><!-- 회원가입버튼이 눌렸을때 "/userReg"로 값들이 전달된다.-->
 </form>
+<footer class="footer text-faded text-center py-5">
+    <div class="container"><p class="m-0 small">Copyright &copy; Your Website 2023</p></div>
+</footer>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="/bootstrap/js/scripts.js"></script>
+
 </body>
 </html>

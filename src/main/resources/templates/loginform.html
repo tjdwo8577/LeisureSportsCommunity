@@ -1,28 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" type="image/x-icon" href="/bootstrap/assets/favicon.ico" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/bootstrap/css/styles.css" rel="stylesheet" />
     <title>Login form</title>
     <link rel="stylesheet" href="loginform.css" />
 </head>
 <body>
 <H1>Login form</H1>
-<form action="/login" method="post"> <!-- 입력한 로그인 정보(이메일과 암호)를 post방식으로 action="/login"으로 전달된다.-->
+<form id="loginForm" action="/login" method="post">
     email : <input type="text" name="email" /><br />
     Password: <input type="password" name="password" /><br />
     <input type="submit" value="login"/>
 </form>
 
+<div id="loading" style="display:none;">Logging in...</div>
+
 <p id="error_message" style="display:none;color:red;">Login failed. Please check your email and password.</p>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-    var url = window.location.href;
-    if (url.indexOf('error=true') != -1) {
-        document.getElementById('error_message').style.display = 'block';
-    }
+    var loadingTime = 0;
+    var loadingTimer;
+
+    $('#loginForm').on('submit', function(e) {
+        e.preventDefault(); //prevent the form from submitting normally
+        $('#loading').show(); //show the loading message
+
+        loadingTime = 0; //reset the loading time
+        loadingTimer = setInterval(function() { //start the timer
+            loadingTime++;
+            $('#loading').text('Logging in...' + loadingTime + 's'); //update the loading message
+        }, 1000);
+
+        $.post('/login', $(this).serialize(), function(data) {
+            //this callback will be called when the server responds
+            clearInterval(loadingTimer); //stop the timer
+            $('#loading').hide(); //hide the loading message
+            if (data.error) {
+                $('#error_message').show(); //if there was an error, show the error message
+            } else {
+                window.location.href = '/'; //if it was successful, redirect to the success page
+            }
+        });
+    });
 </script>
 
+<footer class="footer text-faded text-center py-5">
+    <div class="container"><p class="m-0 small">Copyright © Your Website 2023</p></div>
+</footer>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="/bootstrap/js/scripts.js"></script>
 </body>
 </html>

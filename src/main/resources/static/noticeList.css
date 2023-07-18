@@ -25,22 +25,22 @@ body {
     word-break: break-all;
 }
 @keyframes blink {
-    0% {
+    0%, 66.66% {
         opacity: 1;
     }
-    50% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+    /*33.33%, 100% {*/
+    /*    opacity: 0;*/
+    /*}*/
 }
+
 h1 {
     text-align: center;
-    margin-top: 30px;
-    color: red;
-    animation: blink 1s infinite; /* Apply the blink animation to h1 tags */
+    margin-top: 60px;
+    color: #e6a756;
+    animation: blink 3s infinite; /* Now the blink animation takes 3 seconds for one cycle */
+    font-weight: bold;
 }
+
 
 .board-table th,
 .board-table td {
@@ -62,7 +62,7 @@ h1 {
 }
 
 #board-list a {
-    color: #007bff;
+    color: rgba(121, 152, 178, 0.9);
     text-decoration: none;
 }
 
@@ -78,12 +78,12 @@ h1 {
 #homeButton a {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: rgba(121, 152, 178, 0.9);
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
 }
 
 #homeButton a:hover {
-    background-color: #0056b3;
+    background-color: rgba(121, 152, 178, 0.9);
 }
