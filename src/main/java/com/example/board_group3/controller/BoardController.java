@@ -72,16 +72,7 @@ public String board(@RequestParam("boardId") int boardId, Model model) {
     model.addAttribute("comments",comments);
     return "board";
 }
-//    @GetMapping("/writeForm")
-//    public String writeForm(HttpSession session, Model model) {
-//        LoginInfo loginInfo = (LoginInfo)session.getAttribute("loginInfo");
-//        if(loginInfo == null) {
-//            return "redirect:/loginform";
-//        }
-//        model.addAttribute("loginInfo", loginInfo);
-//        model.addAttribute("pageCount", pageCount);
-//        return "writeForm";
-//    }
+
 @GetMapping("/writeForm")
 public String writeForm(HttpSession session, Model model) {
     LoginInfo loginInfo = (LoginInfo)session.getAttribute("loginInfo");

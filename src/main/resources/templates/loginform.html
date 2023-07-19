@@ -22,37 +22,8 @@
     <input type="submit" value="login"/>
 </form>
 
-<div id="loading" style="display:none;">Logging in...</div>
-
 <p id="error_message" style="display:none;color:red;">Login failed. Please check your email and password.</p>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-    var loadingTime = 0;
-    var loadingTimer;
-
-    $('#loginForm').on('submit', function(e) {
-        e.preventDefault(); //prevent the form from submitting normally
-        $('#loading').show(); //show the loading message
-
-        loadingTime = 0; //reset the loading time
-        loadingTimer = setInterval(function() { //start the timer
-            loadingTime++;
-            $('#loading').text('Logging in...' + loadingTime + 's'); //update the loading message
-        }, 1000);
-
-        $.post('/login', $(this).serialize(), function(data) {
-            //this callback will be called when the server responds
-            clearInterval(loadingTimer); //stop the timer
-            $('#loading').hide(); //hide the loading message
-            if (data.error) {
-                $('#error_message').show(); //if there was an error, show the error message
-            } else {
-                window.location.href = '/'; //if it was successful, redirect to the success page
-            }
-        });
-    });
-</script>
 
 <footer class="footer text-faded text-center py-5">
     <div class="container"><p class="m-0 small">Copyright © Your Website 2023</p></div>

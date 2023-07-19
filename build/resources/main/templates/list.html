@@ -140,20 +140,6 @@
 
 
 <script>
-    // Refresh Table Numbering Function
-    function refreshTableNumbers() {
-        var table = document.querySelector('.board-table tbody');
-        var rows = table.querySelectorAll('tr');
-
-        rows.forEach(function(row, index) {
-            var numberCell = row.querySelector('.th-num');
-            numberCell.textContent = index + 1;
-        });
-    }
-
-    // Call function to refresh table numbers
-    refreshTableNumbers();
-
     document.getElementById("write-button").addEventListener("click", function() {
         alert("로그인이 필요한 기능입니다. 먼저 로그인해주세요.");
     });
