@@ -26,8 +26,8 @@ public class BoardController {
     @GetMapping("/")
     public String list(@RequestParam(name = "page", defaultValue = "1") int page, HttpSession session, Model model) {
 
-        String[] cities = {"Seoul", " Gyeonggi-do", "Busan", "Gangwon-do", "Chungcheongbuk-do", "Jeollabuk-do", "Chungcheongnam-do",
-                "Jeollanam-do", "Gyeongsangnam-do", "Gyeongsangbuk-do", "Jeju-do"}; // Add more cities as needed
+        String[] cities = {"Seoul","Busan","Jeju-do", " Gyeonggi-do", "Gangwon-do", "Chungcheongbuk-do", "Jeollabuk-do", "Chungcheongnam-do",
+                "Jeollanam-do", "Gyeongsangnam-do", "Gyeongsangbuk-do"}; // Add more cities as needed
         WeatherResponse[] weather = new WeatherResponse[cities.length];
 
         for (int i = 0; i < cities.length; i++) {

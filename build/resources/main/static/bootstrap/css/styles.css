@@ -73,8 +73,8 @@
   --bs-border-radius-xl: 1rem;
   --bs-border-radius-2xl: 2rem;
   --bs-border-radius-pill: 50rem;
-  --bs-link-color: #e6a756;
-  --bs-link-hover-color: #b88645;
+  --bs-link-color: #10100f;
+  --bs-link-hover-color: #0c0b0a;
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff3cd;
 }
@@ -7785,8 +7785,8 @@ textarea.form-control-lg {
 }
 
 .py-5 {
-  padding-top: 3rem !important;
-  padding-bottom: 3rem !important;
+  /*padding-top: 3rem !important;*/
+  /*padding-bottom: 3rem !important;*/
 }
 
 .pt-0 {
@@ -11006,18 +11006,27 @@ p {
   /*position: fixed;*/
 }
 .footer {
-  background-color: rgba(121, 152, 178, 0.9);
-  position: fixed;
-    bottom: 0;
+margin-top: auto;
+  margin-bottom: 0;
+  height: 300px;
+  position: sticky;
+  left: 0; width: 100%; bottom: 0;
+  word-break: normal;
+  transform: translateY(100%);
 }
 .card-header {
-  display: flex;
+  /*display: flex;*/
   align-items: center;
   justify-content: center;
   height: auto;
 }
-
-
+.wrapper{
+  height: auto;
+  min-height: 100%;
+  /*padding-bottom: 10px;*/
+  /*margin-bottom: 0;*/
+  /*  bottom: 0;*/
+}
 
 .intro {
   position: relative;
