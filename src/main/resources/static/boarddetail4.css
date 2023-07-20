@@ -176,3 +176,13 @@ a:hover {
     display: inline-block;
     margin-right: 5px;
 }
+
+
+.content-wrapper {
+    border: 1px solid black;  /* 네모 틀에 검정색 테두리를 적용합니다. */
+    padding: 20px;  /* 틀 안의 콘텐츠와 테두리 사이에 공간을 만듭니다. */
+    margin-top: 100px;
+    margin-right: 100px;
+    margin-left: 100px;
+    background-color: rgba(121, 152, 178, 0.9);
+}

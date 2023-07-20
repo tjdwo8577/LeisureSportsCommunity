@@ -1,13 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" type="image/x-icon" href="/bootstrap/assets/favicon.ico" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/bootstrap/css/styles.css" rel="stylesheet" />
     <title>게시물 상세보기</title>
     <link rel="stylesheet" href="boarddetail4.css" />
 </head>
+<header>
+    <div class="wrapper">
+    <!--</header>-->
+    <header>
+        <h1 class="site-heading text-center text-faded d-none d-lg-block">
+            <span class="site-heading-upper text-primary mb-3">Real-time weather sharing community for leisure activities</span>
+            <span class="site-heading-lower">WEATHER CONDITIONS</span>
+        </h1>
+    </header>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="list.html">Start Bootstrap</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto justify-content-center">
+                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="/">Home</a></li>
+                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="/about">About</a></li>
+                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="/noticeList">Notice</a></li>
+                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="https://weather.naver.com/today/" target="_blank">Naver</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    </div>
+</header>
 <body>
+<div class="content-wrapper">
 <table class="board-details">
     <tr>
         <th>글쓴이</th>
@@ -69,5 +103,19 @@
         }
     }
 </script>
+
 </body>
+<footer class="footer text-faded text-center py-5">
+    <div class="card text-center mx-2" >
+        <div th:each="cityWeather : ${weather}">
+            <div class="card-header">
+                <h3 class="city-name" th:text="${cityWeather.name}"></h3>
+            </div>
+            <div class="card-body">
+                <p class="temperature" th:text="'Temperature: ' + ${#numbers.formatDecimal(cityWeather.main.temp - 273.15, 2, 2)} + '°C'"></p>
+                <p class="weather-description" th:text="'Weather: ' + ${cityWeather.weather[0].description}"></p>
+            </div>
+        </div>
+    </div>
+</footer>
 </html>

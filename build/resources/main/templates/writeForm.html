@@ -15,30 +15,35 @@
     <link rel="stylesheet" href="writeForm.css" />
 
 </head>
-<body>
-<!--</header>-->
 <header>
-    <h1 class="site-heading text-center text-faded d-none d-lg-block">
-        <span class="site-heading-upper text-primary mb-3">Real-time weather sharing community for leisure activities</span>
-        <span class="site-heading-lower">WEATHER CONDITIONS</span>
-    </h1>
-</header>
-<!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
-    <div class="container">
-        <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="list.html">Start Bootstrap</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="/">Home</a></li>
-                <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="/about">About</a></li>
-                <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="/">Board</a></li>
-                <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="https://weather.naver.com/today/" target="_blank">Naver</a></li>
-            </ul>
-        </div>
+    <div class="wrapper">
+        <!--</header>-->
+        <header>
+            <h1 class="site-heading text-center text-faded d-none d-lg-block">
+                <span class="site-heading-upper text-primary mb-3">Real-time weather sharing community for leisure activities</span>
+                <span class="site-heading-lower">WEATHER CONDITIONS</span>
+            </h1>
+        </header>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="list.html">Start Bootstrap</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto justify-content-center">
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="/">Home</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="/about">About</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="/noticeList">Notice</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="https://weather.naver.com/today/" target="_blank">Naver</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </div>
-</nav>
+</header>
+<body>
 <!--<H1>글쓰기 폼</H1>-->
+<div class="test">
 <form action="/write" method="post">
     이름 : <span th:text="${loginInfo.name}"></span><br>
     제목 : <input type="text" name="title" /><br />
@@ -46,7 +51,7 @@
     <textarea name="content" cols="50" rows="5"></textarea><br>
     <input type="submit" value="등록" onclick='alert("새로운 글이 작성되었습니다.")'/>
 </form>
-
+</div>
 <!-- Inserting the Kakao map api HTML code here -->
 <div class="map_wrap">
 <!-- style="width:auto;height:100%;position:center;overflow:hidden;"   -->
@@ -310,35 +315,26 @@
         </div>
     </div>
 </div>
-<!-- 검색어 입력 필드와 검색 버튼 -->
-<!--<div id="search-form">-->
-<!--    <div class="container">-->
-<!--        <form action="/search" method="GET">-->
-<!--            <input type="text" name="keyword" placeholder="검색어를 입력하세요" />-->
-<!--            <button type="submit">검색</button>-->
-<!--        </form>-->
-<!--    </div>-->
-<!--</div>-->
-<div id="weather-info">
-    <div class="container">
-        <div th:each="cityWeather : ${weather}">
-            <div>
-                <h3 th:text="${cityWeather.name}"></h3>
-                <p th:text="'Temperature: ' + ${#numbers.formatDecimal(cityWeather.main.temp - 273.15, 2, 2)} + '°C'"></p>
-                <p th:text="'Weather: ' + ${cityWeather.weather[0].description}"></p>
-            </div>
-        </div>
-    </div>
-</div>
 </div>
 </section>
-<footer class="footer text-faded text-center py-5">
-    <div class="container"><p class="m-0 small">Copyright &copy; Your Website 2023</p></div>
-</footer>
+
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
 <script src="/bootstrap/js/scripts.js"></script>
 
 </body>
+<footer class="footer text-faded text-center py-5">
+    <div class="card text-center mx-2" >
+        <div th:each="cityWeather : ${weather}">
+            <div class="card-header">
+                <h3 class="city-name" th:text="${cityWeather.name}"></h3>
+            </div>
+            <div class="card-body">
+                <p class="temperature" th:text="'Temperature: ' + ${#numbers.formatDecimal(cityWeather.main.temp - 273.15, 2, 2)} + '°C'"></p>
+                <p class="weather-description" th:text="'Weather: ' + ${cityWeather.weather[0].description}"></p>
+            </div>
+        </div>
+    </div>
+</footer>
 </html>

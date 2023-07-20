@@ -58,6 +58,7 @@ public class BoardController {
     @GetMapping("/about")
     public String about(Model model) {
         // Your logic to calculate pageCount
+
         int pageCount = calculatePageCount();
 
         model.addAttribute("pageCount", pageCount);
@@ -75,6 +76,16 @@ public String board(@RequestParam("boardId") int boardId, Model model) {
 
 @GetMapping("/writeForm")
 public String writeForm(HttpSession session, Model model) {
+    String[] cities2 = {"Seoul","Busan","Jeju-do", " Gyeonggi-do", "Gangwon-do", "Chungcheongbuk-do", "Jeollabuk-do", "Chungcheongnam-do",
+            "Jeollanam-do", "Gyeongsangnam-do", "Gyeongsangbuk-do"}; // Add more cities as needed
+    WeatherResponse[] weather = new WeatherResponse[cities2.length];
+
+    for (int i = 0; i < cities2.length; i++) {
+        weather[i] = weatherService.getWeather(cities2[i]);
+    }
+
+    model.addAttribute("weather", weather);
+
     LoginInfo loginInfo = (LoginInfo)session.getAttribute("loginInfo");
     if(loginInfo == null) {
         return "redirect:/loginform";

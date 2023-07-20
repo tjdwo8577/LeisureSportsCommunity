@@ -23,7 +23,12 @@
 </form>
 
 <p id="error_message" style="display:none;color:red;">Login failed. Please check your email and password.</p>
-
+<script>
+    var url = window.location.href;
+    if (url.indexOf('error=true') != -1) {
+        document.getElementById('error_message').style.display = 'block';
+    }
+</script>
 
 <!--<footer class="footer text-faded text-center py-5">-->
 <!--    <div class="container"><p class="m-0 small">Copyright © Your Website 2023</p></div>-->
@@ -33,4 +38,5 @@
 <!-- Core theme JS-->
 <script src="/bootstrap/js/scripts.js"></script>
 </body>
+
 </html>

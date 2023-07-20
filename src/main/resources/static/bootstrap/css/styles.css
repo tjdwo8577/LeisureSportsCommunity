@@ -11006,13 +11006,13 @@ p {
   /*position: fixed;*/
 }
 .footer {
-margin-top: auto;
+margin-top: 0;
   margin-bottom: 0;
   height: 300px;
   position: sticky;
   left: 0; width: 100%; bottom: 0;
   word-break: normal;
-  transform: translateY(100%);
+  /*transform: translateY(100%);*/;
 }
 .card-header {
   /*display: flex;*/

@@ -110,3 +110,8 @@ form input[type="submit"]:hover {
     margin-right: auto;
     margin-left: auto;/* Adjust this value to control the width of the map */
 }
+
+
+.test{
+    margin-top: 100px;
+}
