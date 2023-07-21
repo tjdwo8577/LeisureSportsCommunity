@@ -18,6 +18,12 @@
 <header>
     <div class="wrapper">
         <!--</header>-->
+        <header>
+            <h1 class="site-heading text-center text-faded d-none d-lg-block">
+                <span class="site-heading-upper text-primary mb-3">Real-time weather sharing community for leisure activities</span>
+                <span class="site-heading-lower">WEATHER CONDITIONS</span>
+            </h1>
+        </header>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
             <div class="container">
@@ -38,19 +44,19 @@
 <body>
 <!--<H1>글쓰기 폼</H1>-->
 <div class="test">
-<form action="/write" method="post">
-    이름 : <span th:text="${loginInfo.name}"></span><br>
-    제목 : <input type="text" name="title" /><br />
-    내용 : <br>
-    <textarea name="content" cols="50" rows="5"></textarea><br>
-    <input type="submit" value="등록" onclick='alert("새로운 글이 작성되었습니다.")'/>
-</form>
+    <form action="/write" method="post">
+        이름 : <span th:text="${loginInfo.name}"></span><br>
+        제목 : <input type="text" name="title" /><br />
+        내용 : <br>
+        <textarea name="content" cols="50" rows="5"></textarea><br>
+        <input type="submit" value="등록" onclick='alert("새로운 글이 작성되었습니다.")'/>
+    </form>
 </div>
 <!-- Inserting the Kakao map api HTML code here -->
 <div class="map_wrap">
-<!-- style="width:auto;height:100%;position:center;overflow:hidden;"   -->
-    <div id="map" style="position: relative;width: 70%;height: 300px;margin: 0 auto;overflow:hidden;margin-right: 300px;margin-left: 500px" ></div>
-    <div id="menu_wrap" class="bg_white" style="margin-left: 127px; margin-bottom: 100px">
+    <!-- style="width:auto;height:100%;position:center;overflow:hidden;"   -->
+    <div id="map" style="    position: relative;width: 70%;height: 300px;margin: 0 auto;overflow:hidden;margin-right: 300px;margin-left: 500px" ></div>
+    <div id="menu_wrap" class="bg_white" style="margin-left: 127px; margin-bottom: 100px;height: 300px">
         <div class="option">
             <div>
                 <form onsubmit="searchPlaces(); return false;">
@@ -59,6 +65,9 @@
                 </form>
             </div>
         </div>
+        <hr>
+        <ul id="placesList"></ul>
+        <div id="pagination"></div>
     </div>
 </div>
 
