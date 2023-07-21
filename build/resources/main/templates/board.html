@@ -90,6 +90,7 @@
                 <span>: </span>
                 <span th:text="${comment.content}"></span>
                 <span th:text="${comment.regdate}"></span>
+                <a onclick='confirmDelete();' th:href="@{/deleteComment(boardId=${board.boardId})}">삭제하기</a>
             </li>
         </ul>
     </div>

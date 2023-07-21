@@ -245,5 +245,23 @@ public String writeForm(HttpSession session, Model model) {
         model.addAttribute("notices", notices);
         return "noticeList"; // noticeList.html로 이동하여 공지사항 목록을 보여줌
     }
+
+    @GetMapping("/deleteComment")
+    public String deleteComment(
+            @RequestParam("boardId") int boardId,
+            HttpSession session
+    ){
+        LoginInfo loginInfo = (LoginInfo) session.getAttribute("loginInfo");
+        if(loginInfo == null) {
+            return "redirect:/loginform";
+        }
+        List<String> roles = loginInfo.getRoles();
+        if(roles.contains("ROLE_ADMIN")){
+            commentService.deleteComment(boardId);
+        }else {
+            commentService.deleteComment(loginInfo.getUserId(), boardId);
+        }
+        return "redirect:/"; //리스트 보기로 redirect
+    }
 }
 

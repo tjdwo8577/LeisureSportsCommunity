@@ -1,5 +1,6 @@
 package com.example.board_group3.dao;
 
+import com.example.board_group3.dto.Board;
 import com.example.board_group3.dto.Comment;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
@@ -44,5 +45,19 @@ public class CommentDao {
         String sql = "SELECT * FROM comment WHERE board_id = :boardId";
         RowMapper<Comment> rowMapper = BeanPropertyRowMapper.newInstance(Comment.class);
         return jdbcTemplate.query(sql, Map.of("boardId", boardId), rowMapper);
+    }
+
+    @Transactional(readOnly = true)
+    public Board getComment(int boardId) {
+        // 1건 또는 0건이 나오는 쿼리
+        String sql = "select b.user_id, b.board_id, b.title, b.regdate, b.view_cnt, u.name, b.content from board b, user u where b.user_id = u.user_id and b.board_id = :boardId"; // = :boardId 매번 변하기 때문에 이렇게 작성
+        RowMapper<Board> rowMapper = BeanPropertyRowMapper.newInstance(Board.class);
+        Board board = jdbcTemplate.queryForObject(sql, Map.of("boardId", boardId), rowMapper);
+        return board;
+    }
+
+    public void deleteComment(int boardId) {
+        String sql = "delete from comment where comment_id = :comment_Id";
+        jdbcTemplate.update(sql, Map.of("boardId", boardId));
     }
 }
