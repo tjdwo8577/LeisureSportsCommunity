@@ -12,7 +12,6 @@
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="/bootstrap/css/styles.css" rel="stylesheet" />
-    <link rel="stylesheet" href="about.css" />
 </head>
 <body>
 <header>
@@ -54,6 +53,14 @@
     </div>
 </nav>
 <section class="board">
+    <!--    <div class="page-title">-->
+    <!--        <div class="container">-->
+    <!--            <h3>레저활동을 위한 날씨공유 커뮤니티</h3>-->
+    <!--        </div>-->
+    <!--    </div>-->
+
+
+
     <!-- board list area -->
     <div id="board-list">
         <div class="container">
@@ -110,6 +117,9 @@
                 </form>
             </div>
         </div>
+        <!--        <div id="external-link">-->
+        <!--            <a href="https://www.google.com">외부 링크</a>-->
+        <!--        </div>-->
         <div id="weather-info">
             <div class="container">
                 <div th:each="cityWeather : ${weather}">

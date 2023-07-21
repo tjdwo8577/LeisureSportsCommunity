@@ -167,6 +167,17 @@ public String writeForm(HttpSession session, Model model) {
 
     @GetMapping("/search")
     public String search(@RequestParam("keyword") String keyword, Model model) {
+
+        String[] cities3 = {"Seoul","Busan","Jeju-do", " Gyeonggi-do", "Gangwon-do", "Chungcheongbuk-do", "Jeollabuk-do", "Chungcheongnam-do",
+                "Jeollanam-do", "Gyeongsangnam-do", "Gyeongsangbuk-do"}; // Add more cities as needed
+        WeatherResponse[] weather = new WeatherResponse[cities3.length];
+
+        for (int i = 0; i < cities3.length; i++) {
+            weather[i] = weatherService.getWeather(cities3[i]);
+        }
+
+        model.addAttribute("weather", weather);
+
         List<Board> searchResults = boardService.searchBoards(keyword);
         model.addAttribute("searchResults", searchResults);
         return "search-results";
