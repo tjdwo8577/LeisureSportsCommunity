@@ -24,10 +24,13 @@ h4 {
 
 .board-table {
     width:  60%;
+    margin-top: 100px;
     border-collapse: collapse;
     align-content: center;
     margin-left: auto;
     margin-right: auto;
+    background-color: rgba(121, 152, 178, 0.9);
+    
 }
 
 .board-table th,
