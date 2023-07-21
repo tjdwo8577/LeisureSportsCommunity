@@ -105,17 +105,4 @@
 </script>
 
 </body>
-<footer class="footer text-faded text-center py-5">
-    <div class="card text-center mx-2" >
-        <div th:each="cityWeather : ${weather}">
-            <div class="card-header">
-                <h3 class="city-name" th:text="${cityWeather.name}"></h3>
-            </div>
-            <div class="card-body">
-                <p class="temperature" th:text="'Temperature: ' + ${#numbers.formatDecimal(cityWeather.main.temp - 273.15, 2, 2)} + '°C'"></p>
-                <p class="weather-description" th:text="'Weather: ' + ${cityWeather.weather[0].description}"></p>
-            </div>
-        </div>
-    </div>
-</footer>
 </html>
