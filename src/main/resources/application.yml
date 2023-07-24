@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/springboard?serverTimezone=Asia/Seoul
-    username: leesunguk
-    password: Naver920811!
+    url: jdbc:mysql://localhost:3306/board_group3_clone2?serverTimezone=Asia/Seoul
+    username: root
+    password: thisisnotpasswordputyourownpassword
 
 server:
   port: 8081
